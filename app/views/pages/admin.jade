@@ -1,0 +1,33 @@
+//Created by Administrator on 2015/6/14.
+
+extends ../layout
+
+block content
+    .container
+        .row
+            form.form-horizontal(method="post", action="/admin/movie")
+                input(type="hidden", name="movie[_id]", value="#{movie._id}")
+                .form-group
+                    label.col-sm-3.control-label(for="inputTitle") 电影名字
+                    .col-sm-10
+                        input#movieTitle.form-control(type="text", name="movie[title]", value="#{movie.title}")
+                    label.col-sm-3.control-label(for="movieDoctor") 导演
+                    .col-sm-10
+                        input#movieDoctor.form-control(type="text", name="movie[doctor]", value="#{movie.doctor}")
+                    label.col-sm-3.control-label(for="movieCountry") 国家
+                    .col-sm-10
+                        input#movieCountry.form-control(type="text", name="movie[country]", value="#{movie.country}")
+                    label.col-sm-3.control-label(for="movieLanguage") 语种
+                    .col-sm-10
+                        input#movieLanguage.form-control(type="text", name="movie[language]", value="#{movie.language}")
+                    label.col-sm-3.control-label(for="moviePost") 海报地址
+                    .col-sm-10
+                        input#moviePost.form-control(type="text", name="movie[poster]", value="#{movie.poster}")
+                    label.col-sm-3.control-label(for="movieYear") 上映年份
+                    .col-sm-10
+                        input#movieYear.form-control(type="text", name="movie[year]", value="#{movie.year}")
+                    label.col-sm-3.control-label(for="inputSummary") 电影简介
+                    .col-sm-10
+                        input#inputSummary.form-control(type="text", name="movie[summary]", value="#{movie.summary}")
+                    .col-sm-10
+                        button(type="submit") 提交

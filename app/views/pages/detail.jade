@@ -1,0 +1,43 @@
+//Created by Administrator on 2015/6/14.
+extends ../layout
+
+block content
+    .container
+        .row
+            .col-md-7
+                embed(src="#{}", allowFullScreen="true", quality="high", width="720", height="100", align="middle", type="application/x-shockwave-flash")
+                .panel.panel-default
+                    .panel-heading
+                        h3 评论区
+                    .panel-body
+                        form(method="POST", action="/user/comment")
+                            textarea(name="comment[content]")
+                            input(type="hidden", name="comment[movie]", value="#{movie._id}")
+                            input(type="hidden", name="comment[from]", value="#{user._id}")
+                            button(type="submit") 提交
+                        ul.media-list
+                            each item in comments
+                                li.media
+                                    .pull-left
+                                        img
+                                        h4.media-heading #{item.from.name}
+                                        p #{item.content}
+                                        .media.pull-left
+                                            img.media-object
+                                        .media-body
+                                            h4.media-heading
+
+            .col-md-5
+                dl.dl-horizontal
+                    dt 电影名字
+                    dd #{movie.title}
+                    dt 导演
+                    dd=movie.doctor
+                    dt 国家
+                    dd=movie.country
+                    dt 语言
+                    dd= movie.language
+                    dt 上行年份
+                    dd= movie.year
+                    dt 简介
+                    dd= movie.summary
